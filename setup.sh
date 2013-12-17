@@ -21,6 +21,6 @@ cd "${SCRIPTPATH}"
 
 sudo cp epel-7-x86_64.cfg /etc/mock
 
-sudo sed -i 's@RHEL7BETA@'${BIN_PATH}'/Packages@' /etc/mock/epel-7-x86_64.cfg
+sudo sed -i 's@RHEL7BETA@'${BIN_PATH}'@' /etc/mock/epel-7-x86_64.cfg
 sudo sed -i 's@OUTPUT@'${SCRIPTPATH}'/output@' /etc/mock/epel-7-x86_64.cfg
 
