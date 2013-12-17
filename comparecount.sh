@@ -14,4 +14,4 @@ echo "Number of addon SRPMS: ${ADDONS_SRC_COUNT}"
 echo "Number of upstream SRPMS: ${SRC_COUNT}"
 echo "Number of rebuilt  SRPMS: ${DST_COUNT}"
 
-echo "Percentage done: $(( 100/(${ADDONS_SRC_COUNT}+${SRC_COUNT})*${DST_COUNT} ))"
+echo "Percentage done: $(( 100*${DST_COUNT}/(${ADDONS_SRC_COUNT}+${SRC_COUNT}) ))"
