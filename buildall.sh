@@ -8,8 +8,12 @@ DST_PATH="${SCRIPTPATH}/output/"
 
 for PKG in "${ADDONS_SRC_PATH}"/*.src.rpm "${SRC_PATH}"/*.src.rpm
 do
-    cd "${DST_PATH}"
-    createrepo .
-    mock -D '%rhel 7' -D '%dist .el7' -D '%el7 1' --root=epel-7-x86_64 --resultdir="${DST_PATH}" "${PKG}"
-
+    echo Building : $PKG
+    if [ -f $DST_PATH/`basename $PKG` ]; then
+	    echo "Package $DST_PATH/$i already exists. Skipping build."
+    else
+        cd "${DST_PATH}"
+        createrepo .
+        mock -D '%rhel 7' -D '%dist .el7' -D '%el7 1' --root=epel-7-x86_64 --resultdir="${DST_PATH}" "${PKG}"
+    fi
 done
